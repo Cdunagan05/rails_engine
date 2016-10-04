@@ -23,4 +23,6 @@ describe "Merchants CRUD API" do
     expect(response.status).to eq(200)
     expect(merchant["name"]).to eq("Chase")
   end
+
+  it "finds a "
 end
