@@ -24,5 +24,28 @@ describe "Merchants CRUD API" do
     expect(merchant["name"]).to eq("Chase")
   end
 
-  it "finds a "
+  it "finds an object based on parameters" do
+    merchant1 = Merchant.create(name: "Chase")
+    merchant2 = Merchant.create(name: "Matt")
+
+    get "/api/v1/merchants/find?name=matt"
+
+
+    merchant = JSON.parse(response.body)
+
+    expect(response.status).to eq(200)
+    expect(merchant["name"]).to eq("Matt")
+  end
+
+  it "finds an object based on id parameter" do
+    merchant1 = Merchant.create(name: "Chase")
+    merchant2 = Merchant.create(name: "Matt")
+
+    get "/api/v1/merchants/find?id=#{merchant1.id}"
+
+    merchant_other = JSON.parse(response.body)
+
+    expect(merchant_other["name"]).to eq("Chase")
+
+  end
 end
