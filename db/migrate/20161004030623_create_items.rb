@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string :description
       t.string :unit_price
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
