@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161004111923) do
-=======
-ActiveRecord::Schema.define(version: 20161004030650) do
->>>>>>> record_endpoints_b
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,39 +22,38 @@ ActiveRecord::Schema.define(version: 20161004030650) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-  create_table "merchants", force: :cascade do |t|
-    t.text     "name"
-=======
   create_table "invoice_items", force: :cascade do |t|
     t.integer  "quantity"
     t.float    "unit_price"
->>>>>>> record_endpoints_b
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-  create_table "transactions", force: :cascade do |t|
-    t.integer  "credit_card_number"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-=======
   create_table "invoices", force: :cascade do |t|
-    t.string   "customer_id"
-    t.string   "merchant_id"
     t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "unit_price"
+    t.float    "unit_price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
->>>>>>> record_endpoints_b
+  end
+
+  create_table "merchants", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "credit_card_number"
+    t.text     "result"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
 end
