@@ -61,4 +61,16 @@ describe "Merchants CRUD API" do
     expect(response.status).to eq(200)
     expect(merchant_all.count).to eq(2)
   end
+
+  it "finds a random object" do
+    Merchant.create(name: "Chase")
+    Merchant.create(name: "Matt")
+    Merchant.create(name: "Dan")
+
+    get "/api/v1/merchants/random"
+
+    random_merchant = JSON.parse(response.body)
+
+    expect(response.status).to eq(200)
+  end
 end
