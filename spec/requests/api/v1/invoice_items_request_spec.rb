@@ -18,6 +18,6 @@ describe "Invoice Items CRUD API" do
     parsed_body = JSON.parse(response.body)
 
     expect(response.status).to eq(200)
-    expect(parsed_body["quantity"]).to eq("99")
+    expect(parsed_body["quantity"]).to eq(99)
   end
 end
