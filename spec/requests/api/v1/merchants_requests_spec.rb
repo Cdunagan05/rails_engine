@@ -48,4 +48,17 @@ describe "Merchants CRUD API" do
     expect(merchant_other["name"]).to eq("Chase")
 
   end
+
+  it "finds all the instances of a parameter" do
+    Merchant.create(name: "Chase")
+    Merchant.create(name: "Matt")
+    Merchant.create(name: "Chase")
+
+    get "/api/v1/merchants/find_all?name=chase"
+
+    merchant_all = JSON.parse(response.body)
+
+    expect(response.status).to eq(200)
+    expect(merchant_all.count).to eq(2)
+  end
 end
