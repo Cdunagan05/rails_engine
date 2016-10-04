@@ -3,18 +3,18 @@
 
 require_relative 'config/application'
 
-require 'csv'
-
-desc "Import customers from csv file"
-task :import => [:environment] do
-
-  file = "db/raw_data/customers.csv"
-
-  csv = CSV.parse(file, :headers => true)
-  csv.each do |row|
-    Customers.create!(row.to_hash)
-  end
-
-end
+# require 'csv'
+#
+# desc "Import customers from csv file"
+# task :import, [:file_path] => [:environment] do |_, args|
+#
+#   file = File.read(args.file_path)
+#
+#   csv = CSV.parse(file, :headers => true)
+#   csv.each do |row|
+#     Customer.create!(row.to_hash)
+#   end
+#
+# end
 
 Rails.application.load_tasks
