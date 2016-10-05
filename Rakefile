@@ -7,11 +7,11 @@ require 'csv'
 
 desc 'This imports all the csv files'
 task import_files: ["import_files:import_customers",
-                    "import_files:import_invoice_items",
+                    "import_files:import_merchants",
                     "import_files:import_invoices",
                     "import_files:import_items",
-                    "import_files:import_merchants",
-                    "import_files:import_transactions"]
+                    "import_files:import_transactions",
+                    "import_files:import_invoice_items"]
 
 namespace :import_files do
   task :import_customers => [:environment] do
@@ -53,7 +53,7 @@ namespace :import_files do
     file = File.read('db/raw_data/transactions.csv')
     csv = CSV.parse(file, :headers => true)
     csv.each do |row|
-      Transactions.create!(row.to_hash)
+      Transaction.create!(row.to_hash)
     end
   end
 end
