@@ -105,9 +105,9 @@ RSpec.describe "Invoice items search" do
   end
 
   it "finds all invoice items by unit price" do
-    invoice_item1 = create(:invoice_item, unit_price: 2.99)
-    invoice_item2 = create(:invoice_item, unit_price: 1.99)
-    invoice_item3 = create(:invoice_item, unit_price: 1.99)
+    invoice_item1 = create(:invoice_item, unit_price: "299")
+    invoice_item2 = create(:invoice_item, unit_price: "199")
+    invoice_item3 = create(:invoice_item, unit_price: "199")
 
     get "/api/v1/invoice_items/find_all?unit_price=1.99"
 

@@ -5,7 +5,7 @@ describe "Merchants CRUD API" do
     Merchant.create(name: "Chase")
     Merchant.create(name: "Matt")
 
-    get "/api/v1/merchants"
+    get "/api/v1/merchants.json"
 
     merchants = JSON.parse(response.body)
 

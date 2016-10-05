@@ -6,7 +6,7 @@ describe "Customers CRUD API" do
     Customer.create
     Customer.create
 
-    get "/api/v1/customers"
+    get "/api/v1/customers.json"
 
     customers = JSON.parse(response.body)
 
