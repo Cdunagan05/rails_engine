@@ -22,6 +22,7 @@ describe "Transactions CRUD API" do
 
     expect(response.status).to eq(200)
     expect(transaction["credit_card_number"]).to eq("543632")
+
   end
 
   it "finds an object based on parameters" do
