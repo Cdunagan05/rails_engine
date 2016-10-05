@@ -21,6 +21,6 @@ describe "Transactions CRUD API" do
     transaction = JSON.parse(response.body)
 
     expect(response.status).to eq(200)
-    expect(transaction["credit_card_number"]).to eq(543632)
+    expect(transaction["credit_card_number"]).to eq("543632")
   end
 end

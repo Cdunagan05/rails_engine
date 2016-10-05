@@ -1,15 +1,19 @@
 class Api::V1::Invoices::SearchController < ApplicationController
   def index
-    search_param = params.keys.first.to_sym
-    render json: Invoices.where(search_param => params[search_param])
+    render json: Invoice.where(search_params)
   end
 
   def show
-    search_param = params.keys.first.to_sym
-    render json: Invoices.find_by(search_param => params[search_param])
+    render json: Invoice.find_by(search_params)
   end
 
   def random
-    render json: Invoices.order("RANDOM()").first
+    render json: Invoice.order("RANDOM()").first
+  end
+
+  private
+
+  def search_params
+    params.permit(:id, :customer_id, :merchant_id, :status, :created_at, :updated_at)
   end
 end
