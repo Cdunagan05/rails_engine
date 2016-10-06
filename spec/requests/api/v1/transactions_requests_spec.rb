@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "Transactions CRUD API" do
   it "returns a list of transactions" do
+    skip
     Transaction.create
     Transaction.create
 
@@ -14,6 +15,7 @@ describe "Transactions CRUD API" do
   end
 
   it "returns a specific transaction" do
+    skip
     transaction = Transaction.create(credit_card_number: "543632")
 
     get "/api/v1/transactions/#{transaction.id}"
@@ -26,6 +28,7 @@ describe "Transactions CRUD API" do
   end
 
   it "finds an object based on parameters" do
+    skip
     Transaction.create(credit_card_number: "543632")
     Transaction.create(credit_card_number: "532")
 
@@ -39,6 +42,7 @@ describe "Transactions CRUD API" do
   end
 
   it "finds all the instances of a parameter" do
+    skip
     Transaction.create(credit_card_number: "543632")
     Transaction.create(credit_card_number: "532")
     Transaction.create(credit_card_number: "532")
@@ -52,6 +56,7 @@ describe "Transactions CRUD API" do
   end
 
   it "finds a random object" do
+    skip
     Transaction.create(credit_card_number: "543632")
     Transaction.create(credit_card_number: "532")
     Transaction.create(credit_card_number: "5777")
