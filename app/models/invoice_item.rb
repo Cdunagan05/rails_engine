@@ -3,4 +3,8 @@ class InvoiceItem < ApplicationRecord
 
   belongs_to :invoice
   belongs_to :item
+
+  def unit_price_with_quantity
+    unit_price * quantity
+  end
 end
