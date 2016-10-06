@@ -31,7 +31,6 @@ describe "Transactions CRUD API" do
 
     get "/api/v1/transactions/find?credit_card_number=532"
 
-
     transaction = JSON.parse(response.body)
 
     expect(response.status).to eq(200)
