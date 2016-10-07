@@ -1,16 +1,16 @@
 class Api::V1::InvoiceItems::SearchController < ApplicationController
   def index
     change_unit_price if params[:unit_price]
-    render json: InvoiceItem.where(search_params)
+    @invoice_items = InvoiceItem.where(search_params)
   end
 
   def show
     change_unit_price if params[:unit_price]
-    render json: InvoiceItem.find_by(search_params)
+    @invoice_item = InvoiceItem.find_by(search_params)
   end
 
   def random
-    render json: InvoiceItem.order("RANDOM()").first
+    @invoice_item = InvoiceItem.order("RANDOM()").first
   end
 
   private
