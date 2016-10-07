@@ -1,11 +1,11 @@
 class Api::V1::InvoiceItems::SearchController < ApplicationController
   def index
-    change_unit_price if params[:unit_price]
+    change_dollars_to_cents(params)
     @invoice_items = InvoiceItem.where(search_params)
   end
 
   def show
-    change_unit_price if params[:unit_price]
+    change_dollars_to_cents(params)
     @invoice_item = InvoiceItem.find_by(search_params)
   end
 
@@ -14,10 +14,6 @@ class Api::V1::InvoiceItems::SearchController < ApplicationController
   end
 
   private
-
-  def change_unit_price
-    params[:unit_price] = params[:unit_price].gsub(".", "").to_i
-  end
 
   def search_params
     params.permit(:unit_price, :id, :quantity, :invoice_id, :item_id, :created_at, :updated_at)
