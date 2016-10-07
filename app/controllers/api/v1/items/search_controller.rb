@@ -1,15 +1,15 @@
 class Api::V1::Items::SearchController < ApplicationController
   def index
-    render json: Item.where(search_params)
+    @items = Item.where(search_params)
   end
 
   def show
     change_unit_price if params[:unit_price]
-    render json: Item.find_by(search_params)
+    @item = Item.find_by(search_params)
   end
 
   def random
-    render json: Item.order("RANDOM()").first
+    @item = Item.order("RANDOM()").first
   end
 
   private

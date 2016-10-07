@@ -1,14 +1,14 @@
 class Api::V1::Invoices::SearchController < ApplicationController
   def index
-    render json: Invoice.where(search_params)
+    @invoices = Invoice.where(search_params)
   end
 
   def show
-    render json: Invoice.find_by(search_params)
+    @invoice = Invoice.find_by(search_params)
   end
 
   def random
-    render json: Invoice.order("RANDOM()").first
+    @invoice = Invoice.order("RANDOM()").first
   end
 
   private

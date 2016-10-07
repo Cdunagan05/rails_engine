@@ -48,16 +48,4 @@ describe "Customers CRUD API" do
     expect(response.status).to eq(200)
     expect(customer_all.count).to eq(2)
   end
-
-  it "finds a random object" do
-    Customer.create(first_name: "Chase")
-    Customer.create(first_name: "Matt")
-    Customer.create(first_name: "Dan")
-
-    get "/api/v1/customers/random"
-
-    random_customer = JSON.parse(response.body)
-
-    expect(response.status).to eq(200)
-  end
 end
