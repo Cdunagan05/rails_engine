@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- To install this program on your computer:
 
-Things you may want to cover:
+  git clone https://github.com/Cdunagan05/rails_engine.git
+  bundle update
+  bundle install
 
-* Ruby version
+- To import csv files into your database, run:
 
-* System dependencies
+  rake db:reset
+  rake import_files
 
-* Configuration
+- To run the test suite, run:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  rspec
