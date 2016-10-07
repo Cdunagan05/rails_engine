@@ -1,14 +1,14 @@
 class Api::V1::Transactions::SearchController < ApplicationController
   def show
-    render json: Transaction.find_by(search_params)
+    @transaction = Transaction.find_by(search_params)
   end
 
   def index
-    render json: Transaction.where(search_params)
+    @transactions = Transaction.where(search_params)
   end
 
   def random
-    render json: Transaction.order("RANDOM()").first
+    @transaction = Transaction.order("RANDOM()").first
   end
 
   private
