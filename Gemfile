@@ -26,6 +26,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'table_print'
+  gem 'simplecov'
 end
 
 group :development do
